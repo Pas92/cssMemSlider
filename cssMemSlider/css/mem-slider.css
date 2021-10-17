@@ -1,23 +1,23 @@
 body {
   width: 100%;
+  background-color: rgb(66, 66, 66);
 }
 
 main {
   margin: 16px auto;
-  width: calc(100%-36px);
+  width: calc(100% - 36px);
   max-width: 1200px;
 
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
-  row-gap: 25px;
+  row-gap: 15px;
 }
 
 .mem-slider-frame,
 .text-slider-frame {
   width: 100%;
-  height: auto;
   overflow: hidden;
   flex-grow: 1;
 }
@@ -34,13 +34,14 @@ main {
 .mem-slide, 
 .text-slide {
   width: 25%;
-  height: auto;
   max-height: 600px;
+  object-fit: cover;
 }
 
 .mem-slide img {
   width: 100%;
-  object-fit: contain;
+  height: 100%;
+  object-fit: cover;
   object-position: center center;
 }
 
@@ -52,12 +53,13 @@ main {
 
 .text-slider-frame p {
   font-family: 'Arial', 'Helvetica', sans-serif;
+  letter-spacing: 2px;
   font-size: 24px;
   padding-bottom: 24px;
+  color: #ffffff;
 }
 
 .mem-slider-bullets {
-  margin-left: 32px;
   width: 100%;
   max-width: 400px;
   flex-grow: 0;
@@ -82,13 +84,40 @@ main {
   width: 16px;
   height: 16px;
   position: absolute;
-  background-color: #123456;
+  background-color: #2b65a0;
   border-radius: 50%;
 
   top :50%;
   left: 50%;
 
+  outline: 3px solid transparent;
+
   transform: translate(-50%, -50%);
+  transition: 0.3s ease-in-out;
+}
+
+.mem-slider-bullets label:hover::after {
+  background-color: #ffffff;
+}
+
+.mem-slider-bullets label:active::after {
+  background-color: #a7a7a7;
+}
+
+#check-slide1:checked ~ .mem-slider-bullets label:nth-child(1)::after,
+#check-slide2:checked ~ .mem-slider-bullets label:nth-child(2)::after,
+#check-slide3:checked ~ .mem-slider-bullets label:nth-child(3)::after,
+#check-slide4:checked ~ .mem-slider-bullets label:nth-child(4)::after {
+  background-color: transparent;
+  outline: 3px solid #2b65a0;
+  outline-offset: -3px;
+}
+
+#check-slide1:checked ~ .mem-slider-bullets label:nth-child(1):hover::after,
+#check-slide2:checked ~ .mem-slider-bullets label:nth-child(2):hover::after,
+#check-slide3:checked ~ .mem-slider-bullets label:nth-child(3):hover::after,
+#check-slide4:checked ~ .mem-slider-bullets label:nth-child(4):hover::after {
+  outline-color: #ffffff;
 }
 
 #check-slide1:checked ~ .mem-slider-frame .mem-slider-content {
@@ -121,4 +150,28 @@ main {
 
 #check-slide4:checked ~ .text-slider-frame .text-slider-content {
   margin-left: -300%
+}
+
+@media screen and (max-width: 1100px) {
+  main {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .mem-slider-bullets {
+    justify-content: center;
+  }
+
+  .text-slider-frame {
+    order: 3;
+  }
+
+  .text-slider-frame {
+    align-self: flex-start;
+  }
+
+  .text-slider-frame p {
+    font-size: 16px;
+    letter-spacing: 1px;
+  }
 }
