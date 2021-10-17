@@ -11,12 +11,13 @@ main {
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
-  background-color: cornflowerblue;
+  row-gap: 25px;
 }
 
 .mem-slider-frame,
 .text-slider-frame {
   width: 100%;
+  height: auto;
   overflow: hidden;
   flex-grow: 1;
 }
@@ -26,7 +27,6 @@ main {
   display: flex;
   flex-direction: row;
   width: 400%;
-  height: 40px;
 
   transition: all 500ms ease-in-out;
 }
@@ -34,12 +34,26 @@ main {
 .mem-slide, 
 .text-slide {
   width: 25%;
-  background-color: coral;
+  height: auto;
+  max-height: 600px;
+}
+
+.mem-slide img {
+  width: 100%;
+  object-fit: contain;
+  object-position: center center;
 }
 
 .text-slider-frame {
   max-width: 600px;
   flex-grow: 0;
+}
+
+
+.text-slider-frame p {
+  font-family: 'Arial', 'Helvetica', sans-serif;
+  font-size: 24px;
+  padding-bottom: 24px;
 }
 
 .mem-slider-bullets {
@@ -49,7 +63,7 @@ main {
   flex-grow: 0;
 
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   column-gap: 8px;
 }
 
@@ -90,5 +104,21 @@ main {
 }
 
 #check-slide4:checked ~ .mem-slider-frame .mem-slider-content {
+  margin-left: -300%
+}
+
+#check-slide1:checked ~ .text-slider-frame .text-slider-content {
+  margin-left: 0;
+}
+
+#check-slide2:checked ~ .text-slider-frame .text-slider-content {
+  margin-left: -100%
+}
+
+#check-slide3:checked ~ .text-slider-frame .text-slider-content {
+  margin-left: -200%
+}
+
+#check-slide4:checked ~ .text-slider-frame .text-slider-content {
   margin-left: -300%
 }
