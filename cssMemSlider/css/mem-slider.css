@@ -4,15 +4,15 @@ body {
 }
 
 main {
-  margin: 16px auto;
-  width: calc(100% - 36px);
-  max-width: 1200px;
+  margin: 1rem auto;
+  width: calc(100% - 2rem);
+  max-width: 75rem;
 
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
-  row-gap: 15px;
+  row-gap: 1rem;
 }
 
 .mem-slider-frame,
@@ -34,7 +34,7 @@ main {
 .mem-slide, 
 .text-slide {
   width: 25%;
-  max-height: 600px;
+  max-height: 37.5rem;
   object-fit: cover;
 }
 
@@ -46,77 +46,77 @@ main {
 }
 
 .text-slider-frame {
-  max-width: 600px;
+  max-width: 37.5rem;
   flex-grow: 0;
 }
 
 
 .text-slider-frame p {
   font-family: 'Arial', 'Helvetica', sans-serif;
-  letter-spacing: 2px;
-  font-size: 24px;
-  padding-bottom: 24px;
+  letter-spacing: 0.125em;
+  font-size: 1.5rem;
+  padding-bottom: 1.5em;
   color: #ffffff;
 }
 
 .mem-slider-bullets {
   width: 100%;
-  max-width: 400px;
+  max-width: 25rem;
   flex-grow: 0;
 
   display: flex;
   justify-content: flex-end;
-  column-gap: 8px;
+  column-gap: 0.5rem;
 }
 
 .mem-slider-bullets label {
-  width: 40px;
-  height: 40px;
-  position: relative;
+  width: 2.5rem;
+  height: 2.5rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
 }
 
 .mem-slider-bullets label:hover {
   cursor: pointer;
 }
 
-.mem-slider-bullets label::after {
-  content: "";
-  width: 16px;
-  height: 16px;
-  position: absolute;
+.mem-slider-bullets label .bullet {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
   background-color: #2b65a0;
   border-radius: 50%;
 
-  top :50%;
-  left: 50%;
+  outline: 0.2em solid transparent;
 
-  outline: 3px solid transparent;
-
-  transform: translate(-50%, -50%);
   transition: 0.3s ease-in-out;
 }
 
-.mem-slider-bullets label:hover::after {
+.mem-slider-bullets label:hover .bullet {
   background-color: #ffffff;
 }
 
-.mem-slider-bullets label:active::after {
+.mem-slider-bullets label:active .bullet {
   background-color: #a7a7a7;
 }
 
-#check-slide1:checked ~ .mem-slider-bullets label:nth-child(1)::after,
-#check-slide2:checked ~ .mem-slider-bullets label:nth-child(2)::after,
-#check-slide3:checked ~ .mem-slider-bullets label:nth-child(3)::after,
-#check-slide4:checked ~ .mem-slider-bullets label:nth-child(4)::after {
+#check-slide1:checked ~ .mem-slider-bullets label:nth-child(1) .bullet,
+#check-slide2:checked ~ .mem-slider-bullets label:nth-child(2) .bullet,
+#check-slide3:checked ~ .mem-slider-bullets label:nth-child(3) .bullet,
+#check-slide4:checked ~ .mem-slider-bullets label:nth-child(4) .bullet {
   background-color: transparent;
-  outline: 3px solid #2b65a0;
-  outline-offset: -3px;
+  outline: 0.2em solid #2b65a0;
+  outline-offset: -0.2em;
 }
 
-#check-slide1:checked ~ .mem-slider-bullets label:nth-child(1):hover::after,
-#check-slide2:checked ~ .mem-slider-bullets label:nth-child(2):hover::after,
-#check-slide3:checked ~ .mem-slider-bullets label:nth-child(3):hover::after,
-#check-slide4:checked ~ .mem-slider-bullets label:nth-child(4):hover::after {
+#check-slide1:checked ~ .mem-slider-bullets label:nth-child(1):hover .bullet,
+#check-slide2:checked ~ .mem-slider-bullets label:nth-child(2):hover .bullet,
+#check-slide3:checked ~ .mem-slider-bullets label:nth-child(3):hover .bullet,
+#check-slide4:checked ~ .mem-slider-bullets label:nth-child(4):hover .bullet {
   outline-color: #ffffff;
 }
 
@@ -171,7 +171,7 @@ main {
   }
 
   .text-slider-frame p {
-    font-size: 16px;
-    letter-spacing: 1px;
+    font-size: 1rem;
+    letter-spacing: 0.1em;
   }
 }
